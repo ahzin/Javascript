@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+.header {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(1.jpg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header .menu .navi {
+  float: top;
+  list-style: none;
+  margin-top: 30px;
+
+}
+
+
+.header .menu .navi li{
+    display: inline;
+}
+
+
+.header .menu .navi li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+  
+.header .menu .navi li a:hover {
+    background-color: #fff;
+    color: #000;
+}
+  
+.logo {
+    float: left;
+}
+  
+.logo img {
+    padding: 15px 0;
+}
+  
+.main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    text-align: center;
+}
+  
+.main h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+  
+.main p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  
+.main a {
+    border: 1px solid #fff;
+    color: #fff;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border-radius: 25px;
+}
+  
+.main a:hover {
+    background: #fff;
+    color: #000;
+}
+
+  
+@media (max-width: 800px) {
+    .menu {
+      width: 100%;
+    }
+  
+    .logo {
+      float: none;
+      width: 50%;
+      text-align: center;
+      margin: auto;
+    }
+    .navi {
+      float: none;
+      margin-top: 0;
+      text-align: center;
+    }
+    .navi li a {
+      padding: 5px;
+      font-size: 15px;
+    }
+    .main{
+      width: 100%;
+      height: auto;
+      margin: 20% 0;
+    }
+    .main h1 {
+      font-size: 30px;
+    }
+    .main p {
+      font-size: 16px;
+      width: 90%;
+      margin: auto;
+      line-height: 1.5;
+    }
+  }
+  

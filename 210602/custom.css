@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Ramabhadra&display=swap');
+
+.banner {
+  height: 500px;
+  background: url("https://cdn.pixabay.com/photo/2016/01/09/18/28/notepad-1130743_960_720.jpg")
+    no-repeat center center;
+  background-size: cover;
+}
+
+.banner h2{
+  font-family: 'Courgette', cursive;
+}
+
+.banner h1{
+  font-family: 'Ramabhadra', sans-serif;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section h3 {
+  font-family: "Ra";
+  font-family: 'Ramabhadra', sans-serif;
+}
+
+.section h4 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.section p {
+  font-size: 20px;
+}

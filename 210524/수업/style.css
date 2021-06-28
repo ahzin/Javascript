@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+    /*축약 속성 : background 로 해도 설정 가능*/
+} 
+
+.header{
+    background-color: #111c31;
+    height: 50px;
+    line-height: 50px;
+}
+
+.header .nav{
+    width: 80%;
+    margin: 0 auto; /*한줄로 margin-top,margin-bottom은 0, margin-left, margin-right는 auto로 적용*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .nav h1{
+    color: white;
+    float: left;
+    font-size: 24px;
+}
+
+.header .nav ul{
+    float: right;
+}
+
+.header .nav ul li{
+    width: 100px;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    background: #111c31;
+} 
+
+.header .nav ul li:hover{
+    background-color: #29447A;
+}
+
+.header .nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.header .nav .sub-menu{
+    display: none;
+}
+
+.header .nav .sub-menu > li {
+    position: relative;
+}
+
+.header .nav li:hover .sub-menu{
+    display: block;
+}
+
+.header .nav .third-menu{
+    position: absolute;
+    width: 100px;
+    right: -100%;
+    top: 0;
+    display: none;
+}
+
+.header .nav .sub-menu > li:hover .third-menu{
+    display: block;
+}

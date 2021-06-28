@@ -1,0 +1,180 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /*css reset*/
+
+html, body{
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #42455a; 
+  /*까지만 하면 빈 흰색화면, width와 height는 상대적이므로 
+  html,body 설정을 꼭 해주자*/
+}
+
+/*
+!important : 어떤 css 뒤에 오면 우선순위가 제일 높아진다.
+*/
+
+/* 헤더(header)*/
+.container .header {
+  padding: 20px 100px; /*공백*/
+}
+
+.container .header .logo{
+  float: left; /*logo 왼쪽 위로 띄우기*/
+  margin-right: 75px; /*오른쪽으로 밀기*/
+}
+
+.container .header .logo span{
+  /*폰트 기반의 아이콘이기 때문에 변경(색상,크기)이 용이하다.*/
+  color: white;
+  font-size: 40px;
+}
+
+.container .header .nav {
+  float: left; 
+}
+
+.container .header .nav li {
+  list-style: none; /*list 구분자 없애기(동그라미)*/
+  display: inline-block; /*nav 일렬로 배치하기*/
+  line-height: 40px; /*logo랑 nav 수평 맞추기*/
+  margin-right: 10px;/*메뉴들끼리 간격 떨어트리기*/
+  margin-left: 10px;
+}
+
+.container .header .nav li a{
+  color: white;
+  text-decoration: none; /*밑줄 빼기*/
+}
+
+.container .header .login-btn {
+  width: 120px;
+  /*inline은 물(?)이라 width 먹히게 하기위해 inline-block*/
+  display: inline-block; 
+  text-align: center;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  border: 3px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /*항상 화면이 어떻든 우측에서 40px 떨어지게 보이기*/
+  position: absolute;
+  right: 40px;
+}
+
+/* main */
+.container .main {
+  width: 80%;
+  margin: 0 auto;
+  /*relative : 자기 자신을 기준으로 20% 위치로 이동*/
+  position: relative; 
+  top: 20%;
+  /*float으로 붕 뜬 양쪽을 정리*/
+  clear: both;
+}
+
+/*좌우 균등하게 영역 분할 width : 50%*/
+.container .main .main-left{
+  width: 50%;
+  float: left;
+}
+
+.container .main .main-left h2,
+.container .main .main-left h3,
+.container .main .main-left p{
+  color: white;
+}
+
+.container .main .main-left h2 {
+  font-size: 40px;
+}
+
+.container .main .main-left h3 {
+  font-size: 38px;
+  margin-bottom: 30px; /*p태그랑 위아래 글자간격*/
+}
+
+.container .main .main-left p {
+  color: #c9c9c9;
+  font-size: 15px;
+  margin-bottom: 40px;
+  /*right 영역 침범해서 이미지가 못올라오니까*/
+  max-width: 500px; 
+}
+
+.container .main .more-btn{
+  color: white;
+  text-decoration: none;
+  border: 3px solid white;
+  border-radius: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 120px;
+  display: inline-block;
+  text-align: center;
+}
+
+.container .main .main-right{
+  width: 50%;
+  float: right;
+}
+
+/* social */
+.container .social-btn {
+  /*position을 사용해서 영역을 항상 왼쪽 하단에 고정시키도록 함*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/*style 꾸미기*/
+.container .social-btn ul li {
+  float: left;
+  list-style: none;
+  padding: 30px;
+  background-color: #696d89;
+  text-align: center;
+  width: 135px;
+}
+
+.container .social-btn ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.container .social-btn ul li a i {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/*반응형 맛보기*/
+@media screen and (max-width: 768px){
+  .container .header .nav {
+    display: none; 
+  }
+  .container .main {
+    top: 10%
+  }
+  .container .main .main-left{
+    float: initial; /*float 줬던 것 취소*/
+    width: 100%;
+  }
+  .container .main .main-right{
+    float: initial;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .container .main .main-right img {
+    width: 100%;
+  }
+  .container .social-btn ul{
+    display: none !important;
+  }
+}

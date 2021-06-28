@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Dancing_Script;
+    src: url(../landing/Dancing_Script/DancingScript-VariableFont_wght.ttf);
+}
+
+.land {
+    color: white;
+    line-height: 100px;
+}
+
+.land .title h1{
+    font-size: 70px;
+    font-family: Dancing_Script;
+}
+
+.land .content h3{
+    font-size: 24px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.land.button {
+    border: white;
+    border-style: outset;
+    border-radius: 10px;
+    
+}
+
