@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            #test {
+                font-size: 30px;
+                font-weight: 800;
+                color: red;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div style="width: 100%; text-align: center; margin: 30px;">
+            <span style="font-size: 20px; font-weight: 800;">회원가입</span> 
+        </div>
+
+        <table border="1" style="width: 100%;">
+          <form name="writeForm" method="POST" enctype="multipart/form-data">
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    ID
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="text" name="id" value="" style="max-width: 500px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    비밀번호
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="text" name="pwd1" value="" style="max-width: 500px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    비밀번호 확인
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="text" name="pwd2" value="" style="max-width: 500px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    이름
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="text" name="nm" value="" style="max-width: 500px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    전화번호
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="text" name="phone" value="" style="max-width: 500px;" onkeydown=" return onlyNum(event);">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width: 20%;">
+                    성별
+                </td>
+                <td style="text-align:left;width: 80%;">
+                    <input type="radio" name="gender" value="M">
+                    남성
+                    <input type="radio" name="gender" value="F">
+                    여성
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;width:100%;" colspan="2">
+                    <input type="button" value="등록하기" onclick="sendWrite()">
+                    <input type="button" value="취소하기">
+                </td>
+            </tr>
+          </form>
+        </table>
+    </body>
+</html>
+
+<script type="text/javascript">
+
+  function sendWrite(){
+
+    // alert("회원 가입입니다.");
+
+    // var temp = "변수";
+    // for(i=0;i<10;i++){
+    //   console.log(i+":"+temp)
+    //   alert(i+":"+temp);
+    // }
+
+
+    var obj = document.writeForm;
+
+    //회원 ID 
+    if(obj.id.value==""){
+      alert("회원 ID 값이 없습니다.");
+      document.writeForm.id.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+    
+    //회원 비밀번호
+    if(obj.pwd1.value==""){
+      alert("회원 비밀번호 값이 없습니다.");
+      document.writeForm.pwd1.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+
+    //회원 비밀번호
+    if(obj.pwd2.value==""){
+      alert("회원 비밀번호 확인 값이 없습니다.");
+      document.writeForm.pwd2.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+
+
+    //회원 비밀번호 확인 
+    if(obj.pwd1.value!=document.writeForm.pwd2.value){
+      alert("회원 비밀번호 확인 값이 일치하지 않습니다.");
+      document.writeForm.pwd2.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+
+    
+    //회원 이름
+    if(document.writeForm.nm.value==""){
+      alert("회원 이름 값이 없습니다.");
+      document.writeForm.nm.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+    
+    //회원 전화번호
+    if(document.writeForm.phone.value==""){
+      alert("회원 전화번호 값이 없습니다.");
+      document.writeForm.phone.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+    
+    //회원 성별
+    if(document.writeForm.gender.value==""){
+      alert("성별을 체크해주세요.");
+      document.writeForm.gender.focus(); //해당 박스에 하이라이트
+      return false;
+    }
+
+    document.writeForm.action="member_view.html";
+    document.writeForm.submit();
+
+  }
+
+  //숫자만 입력 가능
+  function onlyNum(event){
+    event = event || window.event;
+    var keyID = (event.which) ? event.which : event.keyCode;
+    if( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 9 || keyID == 46 || keyID == 37 || keyID == 39 ) {
+      return;
+    }else {
+      return false;
+    }
+
+
+  }
+
+</script>
