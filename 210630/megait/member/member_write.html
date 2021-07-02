@@ -6,172 +6,341 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
 
-        <style>
-            #test {
-                font-size: 30px;
-                font-weight: 800;
-                color: red;
-            }
-        </style>
+        <link rel="stylesheet" href="../script/megait.css">
+
+        <script src="../script/megait.js"></script>
+        <script src="../script/member.js"></script>
+
+        
 
     </head>
     <body>
         <div style="width: 100%; text-align: center; margin: 30px;">
-            <span style="font-size: 20px; font-weight: 800;">회원가입</span> 
+            <span style="font-size: 20px; font-weight: 800;">회원가입</span>
         </div>
 
         <table border="1" style="width: 100%;">
-          <form name="writeForm" method="POST" enctype="multipart/form-data">
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    ID
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="text" name="id" value="" style="max-width: 500px;">
-                </td>
-            </tr>
+            <form name="writeForm" method="POST" enctype="multipart/form-data">
 
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    비밀번호
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="text" name="pwd1" value="" style="max-width: 500px;">
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        회원 종류
+                    </td>
+                    <td style="text-align: left;width: 80%;">
+                        <select name="kind">
+                            <option value="" selected="selected">==선택하세요==</option>
+                            <option value="admin">관리자</option>
+                            <option value="member">회원</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    비밀번호 확인
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="text" name="pwd2" value="" style="max-width: 500px;">
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        ID
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input type="text" name="id" value="" style="max-width: 500px;">
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    이름
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="text" name="nm" value="" style="max-width: 500px;">
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        비밀번호
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input type="text" name="pwd1" value="" style="max-width: 500px;">
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    전화번호
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="text" name="phone" value="" style="max-width: 500px;" onkeydown=" return onlyNum(event);">
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        비밀번호 확인
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input type="text" name="pwd2" value="" style="max-width: 500px;">
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="text-align: center;width: 20%;">
-                    성별
-                </td>
-                <td style="text-align:left;width: 80%;">
-                    <input type="radio" name="gender" value="M">
-                    남성
-                    <input type="radio" name="gender" value="F">
-                    여성
-                </td>
-            </tr>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        이름
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input type="text" name="nm" value="" style="max-width: 500px;">
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="text-align: center;width:100%;" colspan="2">
-                    <input type="button" value="등록하기" onclick="sendWrite()">
-                    <input type="button" value="취소하기">
-                </td>
-            </tr>
-          </form>
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        전화번호
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input
+                            type="text"
+                            name="phone"
+                            value=""
+                            style="max-width: 500px;"
+                            onkeydown=" return onlyNum(event);">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        성별
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input type="radio" name="gender" value="M" checked="checked">
+                        남성
+                        <input type="radio" name="gender" value="F">
+                        여성
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;width: 20%;">
+                        우편번호
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input
+                            type="text"
+                            name="zipcode"
+                            id="zipcode"
+                            onkeydown="return onlyNum(event);"
+                            style="max-width: 100px;">
+                        <input
+                            type="button"
+                            name="zipcodeBtn"
+                            value="우편번호"
+                            onclick="javascript:sample4_execDaumPostcode();">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;width: 20%;" rowspan="2">
+                        주소
+                    </td>
+                    <td style="text-align:left;width: 80%;">
+                        <input
+                            type="text"
+                            name="jaddress"
+                            id="jaddress"
+                            style="max-width: 300px;"
+                            placeholder="지번">
+                        <br>
+                        <input
+                            type="text"
+                            name="raddress"
+                            id="raddress"
+                            style="max-width: 300px;"
+                            placeholder="도로명">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: left; width: 80%;">
+                        <input
+                            type="text"
+                            name="address"
+                            id="address"
+                            style="max-width: 300px;"
+                            placeholder="상세주소">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;width:100%;" colspan="2">
+                        <input type="button" value="등록하기" onclick="sendWrite()">
+                        <input type="button" value="취소하기">
+                    </td>
+                </tr>
+            </form>
         </table>
     </body>
 </html>
 
 <script type="text/javascript">
 
-  function sendWrite(){
+    //회원가입
+    function sendWrite() {
 
-    // alert("회원 가입입니다.");
+        var obj = document.writeForm;
 
-    // var temp = "변수";
-    // for(i=0;i<10;i++){
-    //   console.log(i+":"+temp)
-    //   alert(i+":"+temp);
-    // }
+        //회원 ID
+        if (obj.id.value == "") {
+            alert("회원 ID 값이 없습니다.");
+            document
+                .writeForm
+                .id
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
 
+        if (!checkEmail(obj.id.value)) {
+            alert("특수문자는 입력할 수 없습니다.");
+            obj
+                .id
+                .focus();
+            return false;
+        }
 
-    var obj = document.writeForm;
+        if (true == isSKey4Email(obj.id)) {
+            alert("특수문자는 입력할 수 없습니다.");
+            return false;
+        }
 
-    //회원 ID 
-    if(obj.id.value==""){
-      alert("회원 ID 값이 없습니다.");
-      document.writeForm.id.focus(); //해당 박스에 하이라이트
-      return false;
+        //회원 비밀번호
+        if (obj.pwd1.value == "") {
+            alert("회원 비밀번호를 입력해주세요.");
+            document
+                .writeForm
+                .pwd1
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        if (checkRange(obj.pwd1, 4, 10) == false) {
+            alert("패스워드는 숫자와 영문자로만 구성하여 \n최소 4자에서 10자 사이로 입력가능합니다.\n패스워드를 다시 입력해주세요.");
+            obj
+                .pwd1
+                .focus();
+            return false;
+        }
+
+        if (!check_format(obj.pwd1.value.toLowerCase(), "0123456789abcdefghijklmnopqrstuvwxyz")) {
+            alert("패스워드는 숫자와 영문자로만 구성하여 \n최소 4자에서 10자 사이로 입력가능합니다.\n패스워드를 다시 입력해주세요.");
+            obj
+                .pwd1
+                .focus();
+            return false;
+        }
+
+        //회원 비밀번호
+        if (obj.pwd2.value == "") {
+            alert("회원 비밀번호 확인 값이 없습니다.");
+            document
+                .writeForm
+                .pwd2
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        //회원 비밀번호 확인
+        if (obj.pwd1.value != document.writeForm.pwd2.value) {
+            alert("회원 비밀번호 확인 값이 일치하지 않습니다.");
+            document
+                .writeForm
+                .pwd2
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        //회원 이름
+        if (document.writeForm.nm.value == "") {
+            alert("회원 이름 값이 없습니다.");
+            document
+                .writeForm
+                .nm
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        //회원 전화번호
+        if (document.writeForm.phone.value == "") {
+            alert("회원 전화번호 값이 없습니다.");
+            document
+                .writeForm
+                .phone
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        //회원 성별
+        if (document.writeForm.gender.value == "") {
+            alert("성별을 체크해주세요.");
+            document
+                .writeForm
+                .gender
+                .focus(); //해당 박스에 하이라이트
+            return false;
+        }
+
+        document.writeForm.action = "member_view.html";
+        document
+            .writeForm
+            .submit();
+
     }
-    
-    //회원 비밀번호
-    if(obj.pwd1.value==""){
-      alert("회원 비밀번호 값이 없습니다.");
-      document.writeForm.pwd1.focus(); //해당 박스에 하이라이트
-      return false;
+
+    //숫자만 입력 가능
+    function onlyNum(event) {
+        event = event || window.event;
+        var keyID = (event.which)
+            ? event.which
+            : event.keyCode;
+        if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 9 || keyID == 46 || keyID == 37 || keyID == 39) {
+            return;
+        } else {
+            return false;
+        }
+
     }
+</script>
 
-    //회원 비밀번호
-    if(obj.pwd2.value==""){
-      alert("회원 비밀번호 확인 값이 없습니다.");
-      document.writeForm.pwd2.focus(); //해당 박스에 하이라이트
-      return false;
+<script
+    src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum
+            .Postcode({
+                oncomplete: function (data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분. 도로명 주소의 노출 규칙에 따라 주소를 표시한다. 내려오는 변수가 값이
+                    // 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수
+
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외) 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (
+                            extraRoadAddr !== ''
+                                ? ', ' + data.buildingName
+                                : data.buildingName
+                        );
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document
+                        .getElementById('zipcode')
+                        .value = data.zonecode;
+                    document
+                        .getElementById("raddress")
+                        .value = roadAddr;
+                    document
+                        .getElementById("jaddress")
+                        .value = data.jibunAddress;
+
+                    // 참고항목 문자열이 있을 경우 해당 필드에 넣는다. if(roadAddr !== ''){
+                    // document.getElementById("sample4_extraAddress").value = extraRoadAddr; } else
+                    // {     document.getElementById("sample4_extraAddress").value = ''; } var
+                    // guideTextBox = document.getElementById("guide");  사용자가 '선택 안함'을 클릭한 경우, 예상
+                    // 주소라는 표시를 해준다. if(data.autoRoadAddress) {     var expRoadAddr =
+                    // data.autoRoadAddress + extraRoadAddr;     guideTextBox.innerHTML = '(예상 도로명
+                    // 주소 : ' + expRoadAddr + ')';     guideTextBox.style.display = 'block'; } else
+                    // if(data.autoJibunAddress) {     var expJibunAddr = data.autoJibunAddress;
+                    // guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                    // guideTextBox.style.display = 'block'; } else {     guideTextBox.innerHTML =
+                    // '';     guideTextBox.style.display = 'none'; }
+                }
+            })
+            .open();
     }
-
-
-    //회원 비밀번호 확인 
-    if(obj.pwd1.value!=document.writeForm.pwd2.value){
-      alert("회원 비밀번호 확인 값이 일치하지 않습니다.");
-      document.writeForm.pwd2.focus(); //해당 박스에 하이라이트
-      return false;
-    }
-
-    
-    //회원 이름
-    if(document.writeForm.nm.value==""){
-      alert("회원 이름 값이 없습니다.");
-      document.writeForm.nm.focus(); //해당 박스에 하이라이트
-      return false;
-    }
-    
-    //회원 전화번호
-    if(document.writeForm.phone.value==""){
-      alert("회원 전화번호 값이 없습니다.");
-      document.writeForm.phone.focus(); //해당 박스에 하이라이트
-      return false;
-    }
-    
-    //회원 성별
-    if(document.writeForm.gender.value==""){
-      alert("성별을 체크해주세요.");
-      document.writeForm.gender.focus(); //해당 박스에 하이라이트
-      return false;
-    }
-
-    document.writeForm.action="member_view.html";
-    document.writeForm.submit();
-
-  }
-
-  //숫자만 입력 가능
-  function onlyNum(event){
-    event = event || window.event;
-    var keyID = (event.which) ? event.which : event.keyCode;
-    if( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 9 || keyID == 46 || keyID == 37 || keyID == 39 ) {
-      return;
-    }else {
-      return false;
-    }
-
-
-  }
-
 </script>
